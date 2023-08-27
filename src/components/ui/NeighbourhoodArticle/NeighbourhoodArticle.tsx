@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FC, useMemo } from 'react';
 
 import { AppConstants } from '@/app/app.constants';
+import NeighbourhoodGroup from '@/src/components/ui/NeighbourhoodGroup/NeighbourhoodGroup';
 import { useTypedSelector } from '@/src/redux/hooks';
 import { Npc } from '@/src/redux/reducers/npc.slice';
 
@@ -60,48 +61,24 @@ const NeighbourhoodArticle: FC<NeighbourhoodArticleProps> = ({
   );
 
   return (
-    <article className={cn('mt-[1em]')}>
+    <article className={cn('mt-[1em]', styles.neighbourhood)}>
       <h3>Соседство</h3>
 
-      <h4 className={cn('mt-[.75em]')}>Отличный сосед</h4>
-      {verySuitableNeighbours.map(name => (
-        <div className={cn('text-[.75em] ml-[1em]')}>
-          <Image
-            src={AppConstants.npcData[name].avatar}
-            alt={`${name}-avatar`}
-          />
-        </div>
-      ))}
+      <div className={cn(styles.grid)}>
+        <NeighbourhoodGroup
+          names={verySuitableNeighbours}
+          type={'very-suitable'}
+        />
 
-      <h4 className={cn('mt-[.75em]')}>Хороший сосед</h4>
-      {fitsWellNeighbours.map(name => (
-        <div className={cn('text-[.75em] ml-[1em]')}>
-          <Image
-            src={AppConstants.npcData[name].avatar}
-            alt={`${name}-avatar`}
-          />
-        </div>
-      ))}
+        <NeighbourhoodGroup names={fitsWellNeighbours} type={'fits-well'} />
 
-      <h4 className={cn('mt-[.75em]')}>Плохой сосед</h4>
-      {badFitNeighbours.map(name => (
-        <div className={cn('text-[.75em] ml-[1em]')}>
-          <Image
-            src={AppConstants.npcData[name].avatar}
-            alt={`${name}-avatar`}
-          />
-        </div>
-      ))}
+        <NeighbourhoodGroup names={badFitNeighbours} type={'bad-fit'} />
 
-      <h4 className={cn('mt-[.75em]')}>Худший сосед</h4>
-      {absolutelyNotSuitableNeighbours.map(name => (
-        <div className={cn('text-[.75em] ml-[1em]')}>
-          <Image
-            src={AppConstants.npcData[name].avatar}
-            alt={`${name}-avatar`}
-          />
-        </div>
-      ))}
+        <NeighbourhoodGroup
+          names={absolutelyNotSuitableNeighbours}
+          type={'absolutely not suitable'}
+        />
+      </div>
     </article>
   );
 };
