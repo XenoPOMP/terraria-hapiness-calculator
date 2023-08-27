@@ -1,8 +1,10 @@
 'use client';
 
 import cn from 'classnames';
+import Image from 'next/image';
 import { FC } from 'react';
 
+import { AppConstants } from '@/app/app.constants';
 import UiContainer from '@/src/components/ui/UiContainer/UiContainer';
 import { useTypedSelector } from '@/src/redux/hooks';
 import { Npc } from '@/src/redux/reducers/npc.slice';
@@ -32,9 +34,16 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
             Вот, что удалось найти
           </h2>
 
-          {activatedNames.map(name => (
-            <div>{name}</div>
-          ))}
+          <article className={cn(styles.npcList)}>
+            {activatedNames.map(name => (
+              <Image
+                src={AppConstants.npcData[name].avatar}
+                alt={`${name}-avatar`}
+              />
+            ))}
+          </article>
+
+          <article className={cn(styles.info)}></article>
         </UiContainer>
       )}
     </>
