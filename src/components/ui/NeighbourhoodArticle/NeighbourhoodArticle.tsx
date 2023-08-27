@@ -1,10 +1,7 @@
 import cn from 'classnames';
-import Image from 'next/image';
 import { FC, useMemo } from 'react';
 
-import { AppConstants } from '@/app/app.constants';
 import NeighbourhoodGroup from '@/src/components/ui/NeighbourhoodGroup/NeighbourhoodGroup';
-import { useTypedSelector } from '@/src/redux/hooks';
 import { Npc } from '@/src/redux/reducers/npc.slice';
 
 import styles from './NeighbourhoodArticle.module.scss';
