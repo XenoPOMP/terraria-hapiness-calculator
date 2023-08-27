@@ -19,17 +19,19 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import appSettingsSlice from '@/src/redux/reducers/appSettingsSlice';
+import npcSlice from '@/src/redux/reducers/npc.slice';
 
 /** App`s root reducer. */
 const rootReducer = combineReducers({
   appSettings: appSettingsSlice,
+  npc: npcSlice,
 });
 
 /** Redux-persist config. */
 const persistConfig = getPersistConfig({
   key: 'root',
   storage,
-  blacklist: ['appSettings.appVersion', 'appSettings.appName'],
+  blacklist: ['appSettings.appVersion', 'appSettings.appName', 'npc'],
   rootReducer,
 });
 
