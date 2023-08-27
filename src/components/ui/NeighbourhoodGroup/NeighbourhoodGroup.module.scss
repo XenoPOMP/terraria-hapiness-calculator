@@ -16,6 +16,8 @@
   border-width: 2px;
   background: var(--back);
   border-color: var(--border-color);
+  display: flex;
+  flex-direction: column;
 
   &.verySuitable {
     --bg-red: 23;
@@ -53,5 +55,6 @@
 
     flex-wrap: wrap;
     gap: .5em 1em;
+    flex-grow: 1;
   }
 }
