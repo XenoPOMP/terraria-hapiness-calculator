@@ -6,6 +6,7 @@ import { FC } from 'react';
 
 import { AppConstants } from '@/app/app.constants';
 import BiomeArticle from '@/src/components/ui/BiomeArticle/BiomeArticle';
+import NeighbourhoodArticle from '@/src/components/ui/NeighbourhoodArticle/NeighbourhoodArticle';
 import UiContainer from '@/src/components/ui/UiContainer/UiContainer';
 import { useTypedSelector } from '@/src/redux/hooks';
 
@@ -28,6 +29,7 @@ const NpcCard: FC<NpcCardProps> = ({ name }) => {
       </header>
 
       <BiomeArticle biomes={biomes} />
+      <NeighbourhoodArticle name={name} neighbourhood={neighbourhood} />
     </UiContainer>
   );
 };

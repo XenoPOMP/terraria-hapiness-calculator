@@ -30,6 +30,7 @@ export default function Home() {
       <NpcCard name={'tavernkeep'} />
       <NpcCard name={'magician'} />
       <NpcCard name={'truffle'} />
+      <NpcCard name={'santa'} />
     </main>
   );
 }

@@ -14,6 +14,7 @@ import nurseAvatar from '@/public/avatars/2101028106_preview_Nurse.png';
 import painterAvatar from '@/public/avatars/2101028106_preview_Painter.png';
 import partyGirlAvatar from '@/public/avatars/2101028106_preview_Party_Girl.png';
 import pirateAvatar from '@/public/avatars/2101028106_preview_Pirate.png';
+import santaAvatar from '@/public/avatars/2101028106_preview_Santa_Claus.png';
 import steamPunkerAvatar from '@/public/avatars/2101028106_preview_Steampunker.png';
 import stylistAvatar from '@/public/avatars/2101028106_preview_Stylist.png';
 import tavernKeeperAvatar from '@/public/avatars/2101028106_preview_Tavernkeep.png';
@@ -60,11 +61,11 @@ export const AppConstants: IAppConstants = {
     },
     gunner: {
       avatar: gunnerAvatar,
-      formattedName: 'Продавец оружия',
+      formattedName: 'Торговец оружием',
     },
     'paint-seller': {
       avatar: dyeTraderAvatar,
-      formattedName: 'Продавец красок',
+      formattedName: 'Торговец Красителями',
     },
     steampunker: {
       avatar: steamPunkerAvatar,
@@ -125,6 +126,10 @@ export const AppConstants: IAppConstants = {
     truffle: {
       avatar: truffleAvatar,
       formattedName: 'Трюфель',
+    },
+    santa: {
+      avatar: santaAvatar,
+      formattedName: 'Санта-Клаус',
     },
   },
 
