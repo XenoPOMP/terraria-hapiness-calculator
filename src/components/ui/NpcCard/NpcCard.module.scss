@@ -1,4 +1,8 @@
 section.card {
+  h3 {
+    @apply font-bold text-[1.15em] mb-[.5em];
+  }
+
   &:not(:last-of-type) {
     @apply pb-[1em] mb-[1em];
 

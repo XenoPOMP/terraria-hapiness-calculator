@@ -1,5 +1,3 @@
-'use client';
-
 import cn from 'classnames';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
@@ -7,11 +5,14 @@ import { FC, ReactNode } from 'react';
 import heartIcon from '@/public/icons/832664_pixel-hearts-png.png';
 import checkMarkIcon from '@/public/icons/Check mark.svg';
 import redMarkIcon from '@/public/icons/Red mark-spli.svg';
+import { useUniqueId } from '@/src/hooks/useUniqueId';
 
 import styles from './Icon.module.scss';
 import type { IconProps } from './Icon.props';
 
 const Icon: FC<IconProps> = ({ icon }) => {
+  const id = useUniqueId();
+
   const iconList: Record<IconProps['icon'], ReactNode> = {
     checkMark: (
       <>
@@ -30,7 +31,11 @@ const Icon: FC<IconProps> = ({ icon }) => {
     ),
   };
 
-  return <div className={cn(styles.iconPlaceholder)}>{iconList[icon]}</div>;
+  return (
+    <div className={cn(styles.iconPlaceholder)} key={id}>
+      {iconList[icon]}
+    </div>
+  );
 };
 
 export default Icon;

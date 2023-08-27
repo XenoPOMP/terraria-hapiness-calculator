@@ -3,11 +3,9 @@
 article.biomeArticle {
   font-size: 1em;
 
-  h3 {
-    @apply font-bold text-[1.15em] mb-[.5em];
-  }
 
-  p.biomeItem {
+
+  .biomeItem {
     @extend %notSelectable;
 
     display: flex;
