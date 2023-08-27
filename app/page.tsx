@@ -1,11 +1,14 @@
 import cn from 'classnames';
 
+import MatcherSection from '@/src/components/ui/MatcherSection/MatcherSection';
 import NpcCard from '@/src/components/ui/NpcCard/NpcCard';
 import UiContainer from '@/src/components/ui/UiContainer/UiContainer';
 
 export default function Home() {
   return (
     <main className={cn('pb-[2rem]')}>
+      <MatcherSection />
+
       <NpcCard name={'guide'} />
       <NpcCard name={'seller'} />
       <NpcCard name={'zoologist'} />

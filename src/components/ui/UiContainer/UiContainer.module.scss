@@ -3,6 +3,7 @@
 .uiContainer {
   --margin: 2rem;
 
+  @apply mx-auto;
+
   width: min(var(--max-container-width), calc(100% - 2 * var(--margin)));
-  margin: 0 auto;
 }
