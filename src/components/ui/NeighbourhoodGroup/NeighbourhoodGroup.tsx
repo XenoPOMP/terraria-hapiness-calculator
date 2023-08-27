@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { FC } from 'react';
 
 import { AppConstants } from '@/app/app.constants';
-import BlockCard from '@/src/components/ui/BlockCard/BlockCard';
 
 import styles from './NeighbourhoodGroup.module.scss';
 import type { NeighbourhoodGroupProps } from './NeighbourhoodGroup.props';
@@ -71,18 +70,14 @@ const NeighbourhoodGroup: FC<NeighbourhoodGroupProps> = ({ type, names }) => {
   };
 
   return (
-    <>
-      <BlockCard
-        heading={
-          names.length === 1
-            ? getHeadingText().single
-            : getHeadingText().multiple
-        }
-        classnames={{
-          block: cn(styles.group, getInlineClasses()),
-          body: cn(styles.npcBlock),
-        }}
-      >
+    <div className={cn(styles.group, getInlineClasses())}>
+      <h4>
+        {names.length === 1
+          ? getHeadingText().single
+          : getHeadingText().multiple}
+      </h4>
+
+      <div className={cn(styles.npcBlock)}>
         {names.length === 0 && <>-</>}
 
         {names.map(name => {
@@ -93,29 +88,8 @@ const NeighbourhoodGroup: FC<NeighbourhoodGroupProps> = ({ type, names }) => {
             />
           );
         })}
-      </BlockCard>
-
-      {/*<div className={cn(styles.group, getInlineClasses())}>*/}
-      {/*  <h4>*/}
-      {/*    {names.length === 1*/}
-      {/*      ? getHeadingText().single*/}
-      {/*      : getHeadingText().multiple}*/}
-      {/*  </h4>*/}
-
-      {/*  <div className={cn(styles.npcBlock)}>*/}
-      {/*    {names.length === 0 && <>-</>}*/}
-
-      {/*    {names.map(name => {*/}
-      {/*      return (*/}
-      {/*        <Image*/}
-      {/*          src={AppConstants.npcData[name].avatar}*/}
-      {/*          alt={`${name}-avatar`}*/}
-      {/*        />*/}
-      {/*      );*/}
-      {/*    })}*/}
-      {/*  </div>*/}
-      {/*</div>*/}
-    </>
+      </div>
+    </div>
   );
 };
 
