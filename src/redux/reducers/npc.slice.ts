@@ -1112,6 +1112,19 @@ const npcSlice = createSlice({
         npc => state.filters[npc]
       );
 
+      // TODO: Develop proper biome finding algorithm
+
+      // const filterBiomes = activeNpcs.flatMap(name => {
+      //   const targetNpc = state.npc[name];
+      //
+      //   return getObjectKeys(targetNpc.biomes).flatMap(biomeName => ({
+      //     name: biomeName,
+      //     array: targetNpc.biomes[biomeName],
+      //   }));
+      // });
+
+      // console.log(filterBiomes);
+
       const filterNeighbours = activeNpcs.flatMap(name => {
         const targetNpc = state.npc[name];
 
