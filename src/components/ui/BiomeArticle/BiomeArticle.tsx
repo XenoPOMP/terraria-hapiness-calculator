@@ -22,16 +22,18 @@ const BiomeArticle: FC<BiomeArticleProps> = ({ biomes }) => {
   const glowingMushroomBiome = biomes['glowing-mushroom-biome'];
 
   const MatchIcon: FC<{ rating: Rating }> = ({ rating }) => {
-    const forbiddenRatings: Rating[] = [
-      'absolutely not suitable',
-      'bad-fit',
-      'uncomfortable',
-    ];
-
-    if (forbiddenRatings.includes(rating)) {
+    if (AppConstants.forbiddenRatings.includes(rating)) {
       return (
         <>
           <Icon icon={'redMark'} />
+        </>
+      );
+    }
+
+    if (rating === 'very-suitable') {
+      return (
+        <>
+          <Icon icon={'heart'} />
         </>
       );
     }

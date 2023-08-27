@@ -1,7 +1,10 @@
+'use client';
+
 import cn from 'classnames';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 
+import heartIcon from '@/public/icons/832664_pixel-hearts-png.png';
 import checkMarkIcon from '@/public/icons/Check mark.svg';
 import redMarkIcon from '@/public/icons/Red mark-spli.svg';
 
@@ -18,6 +21,11 @@ const Icon: FC<IconProps> = ({ icon }) => {
     redMark: (
       <>
         <Image src={redMarkIcon} alt={'red-mark-icon'} />
+      </>
+    ),
+    heart: (
+      <>
+        <Image src={heartIcon} alt={'heart-icon'} />
       </>
     ),
   };

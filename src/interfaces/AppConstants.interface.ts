@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ComponentProps } from 'react';
 
-import { Npc } from '@/src/redux/reducers/npc.slice';
+import { Npc, Rating } from '@/src/redux/reducers/npc.slice';
 
 interface IAppConstants {
   appName: string;
@@ -13,6 +13,7 @@ interface IAppConstants {
       formattedName: string;
     }
   >;
+  forbiddenRatings: Rating[];
 }
 
 export default IAppConstants;

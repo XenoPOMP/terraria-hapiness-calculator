@@ -3,13 +3,14 @@ import { FC } from 'react';
 
 import UiContainer from '@/src/components/ui/UiContainer/UiContainer';
 
+import styles from './Header.module.scss';
 import type { HeaderProps } from './Header.props';
 
 const Header: FC<HeaderProps> = ({}) => {
   return (
-    <header>
+    <header className={cn(styles.appHeader, 'pt-[.5em] pb-[.5em] mb-[.5em]')}>
       <UiContainer>
-        <h1 className={cn('text-[1.75rem] mt-[.5em] mb-[1em] font-bold')}>
+        <h1 className={cn('text-[1.75rem] font-bold')}>
           Таблица счастья НИПов Terraria
         </h1>
       </UiContainer>

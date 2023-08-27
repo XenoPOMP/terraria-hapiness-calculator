@@ -1,4 +1,10 @@
 section.card {
+  &:not(:last-of-type) {
+    @apply pb-[1em] mb-[1em];
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
   header.title {
     display: flex;
     align-items: center;

@@ -99,9 +99,9 @@ const initialState: NpcState = {
     },
     seller: {
       biomes: {
-        forest: 'no-data',
+        forest: 'very-suitable',
         underground: 'no-data',
-        desert: 'no-data',
+        desert: 'absolutely not suitable',
         jungle: 'no-data',
         ocean: 'no-data',
         tundra: 'no-data',
@@ -138,9 +138,9 @@ const initialState: NpcState = {
     },
     zoologist: {
       biomes: {
-        forest: 'no-data',
+        forest: 'very-suitable',
         underground: 'no-data',
-        desert: 'no-data',
+        desert: 'absolutely not suitable',
         jungle: 'no-data',
         ocean: 'no-data',
         tundra: 'no-data',
@@ -177,8 +177,8 @@ const initialState: NpcState = {
     },
     golfer: {
       biomes: {
-        forest: 'no-data',
-        underground: 'no-data',
+        forest: 'very-suitable',
+        underground: 'absolutely not suitable',
         desert: 'no-data',
         jungle: 'no-data',
         ocean: 'no-data',
@@ -217,10 +217,10 @@ const initialState: NpcState = {
     bomber: {
       biomes: {
         forest: 'no-data',
-        underground: 'no-data',
+        underground: 'very-suitable',
         desert: 'no-data',
         jungle: 'no-data',
-        ocean: 'no-data',
+        ocean: 'absolutely not suitable',
         tundra: 'no-data',
         holy: 'no-data',
         'glowing-mushroom-biome': 'no-data',
@@ -256,12 +256,12 @@ const initialState: NpcState = {
     tailor: {
       biomes: {
         forest: 'no-data',
-        underground: 'no-data',
+        underground: 'very-suitable',
         desert: 'no-data',
         jungle: 'no-data',
         ocean: 'no-data',
         tundra: 'no-data',
-        holy: 'no-data',
+        holy: 'absolutely not suitable',
         'glowing-mushroom-biome': 'no-data',
       },
 
@@ -295,9 +295,9 @@ const initialState: NpcState = {
     'goblin-engineer': {
       biomes: {
         forest: 'no-data',
-        underground: 'no-data',
+        underground: 'very-suitable',
         desert: 'no-data',
-        jungle: 'no-data',
+        jungle: 'absolutely not suitable',
         ocean: 'no-data',
         tundra: 'no-data',
         holy: 'no-data',
@@ -335,10 +335,10 @@ const initialState: NpcState = {
       biomes: {
         forest: 'no-data',
         underground: 'no-data',
-        desert: 'no-data',
+        desert: 'very-suitable',
         jungle: 'no-data',
         ocean: 'no-data',
-        tundra: 'no-data',
+        tundra: 'absolutely not suitable',
         holy: 'no-data',
         'glowing-mushroom-biome': 'no-data',
       },
@@ -372,9 +372,9 @@ const initialState: NpcState = {
     },
     'paint-seller': {
       biomes: {
-        forest: 'no-data',
+        forest: 'absolutely not suitable',
         underground: 'no-data',
-        desert: 'no-data',
+        desert: 'very-suitable',
         jungle: 'no-data',
         ocean: 'no-data',
         tundra: 'no-data',
@@ -413,8 +413,8 @@ const initialState: NpcState = {
       biomes: {
         forest: 'no-data',
         underground: 'no-data',
-        desert: 'no-data',
-        jungle: 'no-data',
+        desert: 'very-suitable',
+        jungle: 'absolutely not suitable',
         ocean: 'no-data',
         tundra: 'no-data',
         holy: 'no-data',
@@ -452,8 +452,8 @@ const initialState: NpcState = {
       biomes: {
         forest: 'no-data',
         underground: 'no-data',
-        desert: 'no-data',
-        jungle: 'no-data',
+        desert: 'absolutely not suitable',
+        jungle: 'very-suitable',
         ocean: 'no-data',
         tundra: 'no-data',
         holy: 'no-data',
@@ -489,10 +489,10 @@ const initialState: NpcState = {
     },
     painter: {
       biomes: {
-        forest: 'no-data',
+        forest: 'absolutely not suitable',
         underground: 'no-data',
         desert: 'no-data',
-        jungle: 'no-data',
+        jungle: 'very-suitable',
         ocean: 'no-data',
         tundra: 'no-data',
         holy: 'no-data',
@@ -531,10 +531,10 @@ const initialState: NpcState = {
         forest: 'no-data',
         underground: 'no-data',
         desert: 'no-data',
-        jungle: 'no-data',
+        jungle: 'very-suitable',
         ocean: 'no-data',
         tundra: 'no-data',
-        holy: 'no-data',
+        holy: 'absolutely not suitable',
         'glowing-mushroom-biome': 'no-data',
       },
 
@@ -571,8 +571,8 @@ const initialState: NpcState = {
         underground: 'no-data',
         desert: 'no-data',
         jungle: 'no-data',
-        ocean: 'no-data',
-        tundra: 'no-data',
+        ocean: 'very-suitable',
+        tundra: 'absolutely not suitable',
         holy: 'no-data',
         'glowing-mushroom-biome': 'no-data',
       },
@@ -608,9 +608,9 @@ const initialState: NpcState = {
       biomes: {
         forest: 'no-data',
         underground: 'no-data',
-        desert: 'no-data',
+        desert: 'absolutely not suitable',
         jungle: 'no-data',
-        ocean: 'no-data',
+        ocean: 'very-suitable',
         tundra: 'no-data',
         holy: 'no-data',
         'glowing-mushroom-biome': 'no-data',
@@ -646,10 +646,10 @@ const initialState: NpcState = {
     pirate: {
       biomes: {
         forest: 'no-data',
-        underground: 'no-data',
+        underground: 'absolutely not suitable',
         desert: 'no-data',
         jungle: 'no-data',
-        ocean: 'no-data',
+        ocean: 'very-suitable',
         tundra: 'no-data',
         holy: 'no-data',
         'glowing-mushroom-biome': 'no-data',
@@ -685,11 +685,11 @@ const initialState: NpcState = {
     mechanic: {
       biomes: {
         forest: 'no-data',
-        underground: 'no-data',
+        underground: 'absolutely not suitable',
         desert: 'no-data',
         jungle: 'no-data',
         ocean: 'no-data',
-        tundra: 'no-data',
+        tundra: 'very-suitable',
         holy: 'no-data',
         'glowing-mushroom-biome': 'no-data',
       },
@@ -726,9 +726,9 @@ const initialState: NpcState = {
         forest: 'no-data',
         underground: 'no-data',
         desert: 'no-data',
-        jungle: 'no-data',
+        jungle: 'absolutely not suitable',
         ocean: 'no-data',
-        tundra: 'no-data',
+        tundra: 'very-suitable',
         holy: 'no-data',
         'glowing-mushroom-biome': 'no-data',
       },
@@ -767,8 +767,8 @@ const initialState: NpcState = {
         desert: 'no-data',
         jungle: 'no-data',
         ocean: 'no-data',
-        tundra: 'no-data',
-        holy: 'no-data',
+        tundra: 'very-suitable',
+        holy: 'absolutely not suitable',
         'glowing-mushroom-biome': 'no-data',
       },
 
@@ -806,8 +806,8 @@ const initialState: NpcState = {
         desert: 'no-data',
         jungle: 'no-data',
         ocean: 'no-data',
-        tundra: 'no-data',
-        holy: 'no-data',
+        tundra: 'absolutely not suitable',
+        holy: 'very-suitable',
         'glowing-mushroom-biome': 'no-data',
       },
 
@@ -841,12 +841,12 @@ const initialState: NpcState = {
     'party-girl': {
       biomes: {
         forest: 'no-data',
-        underground: 'no-data',
+        underground: 'absolutely not suitable',
         desert: 'no-data',
         jungle: 'no-data',
         ocean: 'no-data',
         tundra: 'no-data',
-        holy: 'no-data',
+        holy: 'very-suitable',
         'glowing-mushroom-biome': 'no-data',
       },
 
@@ -884,8 +884,8 @@ const initialState: NpcState = {
         desert: 'no-data',
         jungle: 'no-data',
         ocean: 'no-data',
-        tundra: 'no-data',
-        holy: 'no-data',
+        tundra: 'absolutely not suitable',
+        holy: 'very-suitable',
         'glowing-mushroom-biome': 'no-data',
       },
 
@@ -922,9 +922,9 @@ const initialState: NpcState = {
         underground: 'no-data',
         desert: 'no-data',
         jungle: 'no-data',
-        ocean: 'no-data',
+        ocean: 'absolutely not suitable',
         tundra: 'no-data',
-        holy: 'no-data',
+        holy: 'very-suitable',
         'glowing-mushroom-biome': 'no-data',
       },
 
@@ -957,14 +957,14 @@ const initialState: NpcState = {
     },
     truffle: {
       biomes: {
-        forest: 'no-data',
-        underground: 'no-data',
-        desert: 'no-data',
-        jungle: 'no-data',
-        ocean: 'no-data',
-        tundra: 'no-data',
-        holy: 'no-data',
-        'glowing-mushroom-biome': 'no-data',
+        forest: 'absolutely not suitable',
+        underground: 'absolutely not suitable',
+        desert: 'absolutely not suitable',
+        jungle: 'absolutely not suitable',
+        ocean: 'absolutely not suitable',
+        tundra: 'absolutely not suitable',
+        holy: 'absolutely not suitable',
+        'glowing-mushroom-biome': 'very-suitable',
       },
 
       neighbourhood: {
