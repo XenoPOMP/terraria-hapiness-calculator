@@ -1,18 +1,9 @@
-import {
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from '@mui/material';
 import cn from 'classnames';
 import { FC } from 'react';
 
 import { AppConstants } from '@/app/app.constants';
 import Icon from '@/src/components/ui/Icon/Icon';
-import { Biome, Rating } from '@/src/redux/reducers/npc.slice';
+import { Rating } from '@/src/redux/reducers/npc.slice';
 
 import styles from './BiomeArticle.module.scss';
 import type { BiomeArticleProps } from './BiomeArticle.props';
