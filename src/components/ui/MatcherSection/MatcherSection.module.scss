@@ -16,5 +16,8 @@ section.matcher {
     }
   }
 
-  article.info {}
+  article.info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
