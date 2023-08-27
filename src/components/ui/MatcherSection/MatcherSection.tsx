@@ -22,6 +22,8 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
     npcNames.find(name => filters[name])
   );
 
+  const activatedNames: Npc[] = npcNames.filter(name => filters[name]);
+
   return (
     <>
       {isAnyFilterEnabled && (
@@ -29,6 +31,10 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
           <h2 className={cn('text-[1.35em] font-semibold')}>
             Вот, что удалось найти
           </h2>
+
+          {activatedNames.map(name => (
+            <div>{name}</div>
+          ))}
         </UiContainer>
       )}
     </>
