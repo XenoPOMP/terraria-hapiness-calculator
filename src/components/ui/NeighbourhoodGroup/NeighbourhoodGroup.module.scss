@@ -1,24 +1,6 @@
 @import "src/styles/templates";
 
 .group {
-  --bg-opacity: 0.4;
-
-  --bg-red: 255;
-  --bg-green: 255;
-  --bg-blue: 255;
-
-  --back: rgba(var(--bg-red) var(--bg-green) var(--bg-blue) / var(--bg-opacity));
-  --border-color: rgb(var(--bg-red) var(--bg-green) var(--bg-blue));
-
-  font-size: 1rem; // 1em = 20px
-  padding: .5em .5em .75em .5em;
-  border-radius: .25em;
-  border-width: 2px;
-  background: var(--back);
-  border-color: var(--border-color);
-  display: flex;
-  flex-direction: column;
-
   &.verySuitable {
     --bg-red: 23;
     --bg-green: 201;
@@ -41,20 +23,5 @@
     --bg-red: 255;
     --bg-green: 0;
     --bg-blue: 0;
-  }
-
-  h4 {
-    @apply font-semibold mb-[.25em];
-
-    text-align: center;
-    font-size: 1em;
-  }
-
-  .npcBlock {
-    @extend %flexCenter;
-
-    flex-wrap: wrap;
-    gap: .5em 1em;
-    flex-grow: 1;
   }
 }
