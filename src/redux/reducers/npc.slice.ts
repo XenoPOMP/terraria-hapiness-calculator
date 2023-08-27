@@ -55,6 +55,8 @@ export type NpcState = {
       neighbourhood: Record<Npc, Rating>;
     }
   >;
+
+  filters: Record<Npc, boolean>;
 };
 
 const initialState: NpcState = {
@@ -1060,16 +1062,46 @@ const initialState: NpcState = {
       },
     },
   },
+
+  filters: {
+    guide: false,
+    seller: false,
+    zoologist: false,
+    golfer: false,
+    bomber: false,
+    tailor: false,
+    'goblin-engineer': false,
+    gunner: false,
+    'paint-seller': false,
+    steampunker: false,
+    triad: false,
+    painter: false,
+    'witch-doctor': false,
+    stylist: false,
+    angler: false,
+    pirate: false,
+    mechanic: false,
+    cyborg: false,
+    'tax-collector': false,
+    nurse: false,
+    'party-girl': false,
+    tavernkeep: false,
+    magician: false,
+    truffle: false,
+    santa: false,
+  },
 };
 
 const npcSlice = createSlice({
   name: 'npc',
   initialState,
   reducers: {
-    simpleAction(state, action: ReduxAction<any>) {},
+    toggleFilter(state, action: ReduxAction<Npc>) {
+      state.filters[action.payload] = !state.filters[action.payload];
+    },
   },
 });
 
 export default npcSlice.reducer;
-export const { simpleAction } = npcSlice.actions;
+export const { toggleFilter } = npcSlice.actions;
 export const initialNpcState = npcSlice.getInitialState();

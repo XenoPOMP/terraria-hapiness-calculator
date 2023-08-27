@@ -1,0 +1,17 @@
+@import "src/styles/templates";
+
+.switch {
+  @extend %notSelectable;
+
+  @apply bg-gray-300 bg-opacity-25 px-[1em] py-[.25em] inline-block border-2 border-gray-300;
+
+  cursor: pointer;
+  border-radius: .25em;
+
+  transition: .15s ease background-color,
+              .15s ease border-color;
+
+  &.enabled {
+    @apply bg-blue-500 bg-opacity-25 px-[1em] py-[.25em] inline-block border-2 border-blue-500;
+  }
+}
