@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { type ReduxAction } from '@/src/redux/types';
+import getObjectKeys from '@/src/utils/getObjectKeys';
+import { isUndefined } from '@/src/utils/type-checks';
 
 export type Npc =
   | 'guide'
@@ -57,6 +59,13 @@ export type NpcState = {
   >;
 
   filters: Record<Npc, boolean>;
+
+  mostProperBiome?: {
+    name: Biome;
+    rating: Rating;
+  };
+
+  relationShipRating?: Rating;
 };
 
 const initialState: NpcState = {
@@ -1098,6 +1107,47 @@ const npcSlice = createSlice({
   reducers: {
     toggleFilter(state, action: ReduxAction<Npc>) {
       state.filters[action.payload] = !state.filters[action.payload];
+
+      const activeNpcs: Npc[] = getObjectKeys(state.filters).filter(
+        npc => state.filters[npc]
+      );
+
+      const filterNeighbours = activeNpcs.flatMap(name => {
+        const targetNpc = state.npc[name];
+
+        return getObjectKeys(targetNpc.neighbourhood)
+          .filter(neighbourName => activeNpcs.includes(neighbourName))
+          .flatMap(neighbour => targetNpc.neighbourhood[neighbour]);
+      });
+
+      const isAnyNoData = filterNeighbours.includes('no-data');
+      const isAnyVerySuitable = filterNeighbours.includes('very-suitable');
+      const isAnyFitsWell = filterNeighbours.includes('fits-well');
+      const isAnyBadFit = filterNeighbours.includes('bad-fit');
+      const isAnyHate = filterNeighbours.includes('absolutely not suitable');
+
+      state.mostProperBiome = {
+        name: 'forest',
+        rating: 'very-suitable',
+      };
+
+      state.relationShipRating = undefined;
+
+      if (isAnyVerySuitable) {
+        state.relationShipRating = 'very-suitable';
+      }
+
+      if (isAnyFitsWell) {
+        state.relationShipRating = 'fits-well';
+      }
+
+      if (isAnyBadFit) {
+        state.relationShipRating = 'bad-fit';
+      }
+
+      if (isAnyHate) {
+        state.relationShipRating = 'absolutely not suitable';
+      }
     },
   },
 });
