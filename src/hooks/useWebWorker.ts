@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import useBoolean from '@/src/hooks/useBoolean';
+
 
 type WorkerFunction<R extends any> = (...args: any[]) => R;
 

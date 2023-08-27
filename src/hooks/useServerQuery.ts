@@ -1,5 +1,6 @@
 import { FunctionPrimitive, Undefinable } from '@xenopomp/advanced-types';
 
+
 /**
  * This hook allows you to manage data prefetching in server-side.
  *

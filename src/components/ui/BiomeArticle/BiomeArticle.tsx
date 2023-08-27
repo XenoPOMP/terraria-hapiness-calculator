@@ -1,10 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 
-import { AppConstants } from '@/app/app.constants';
-import Icon from '@/src/components/ui/Icon/Icon';
 import MatchIcon from '@/src/components/ui/MatchIcon/MatchIcon';
-import { Rating } from '@/src/redux/reducers/npc.slice';
 
 import styles from './BiomeArticle.module.scss';
 import type { BiomeArticleProps } from './BiomeArticle.props';

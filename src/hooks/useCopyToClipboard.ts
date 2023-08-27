@@ -4,6 +4,7 @@ import { useCallback, useEffect } from 'react';
 
 import useBoolean from '@/src/hooks/useBoolean';
 
+
 /**
  * This hook allows copy text to clipboard.
  *

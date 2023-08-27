@@ -1,10 +1,6 @@
 'use client';
 
-import {
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { getPersistConfig } from 'redux-deep-persist';
 import {
   FLUSH,
