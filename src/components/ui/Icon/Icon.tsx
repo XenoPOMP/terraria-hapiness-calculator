@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 
 import heartIcon from '@/public/icons/832664_pixel-hearts-png.png';
-//import redMarkIcon from '@/public/icons/Red mark-spli.svg';
-import redMarkIcon from '@/public/icons/Red mark-2.svg';
-// import checkMarkIcon from '@/public/icons/Check mark.svg';
-import checkMarkIcon from '@/public/icons/check-mark-2.svg';
+// import redMarkIcon from '@/public/icons/Red mark-2.svg';
+import checkMarkIcon from '@/public/icons/Check mark.svg';
+import redMarkIcon from '@/public/icons/Red mark-spli.svg';
+// import checkMarkIcon from '@/public/icons/check-mark-2.svg';
 import { useUniqueId } from '@/src/hooks/useUniqueId';
 
 import styles from './Icon.module.scss';
