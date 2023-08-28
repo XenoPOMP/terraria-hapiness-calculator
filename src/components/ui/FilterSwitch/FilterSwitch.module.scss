@@ -22,4 +22,12 @@
   &.enabled {
     @apply bg-blue-500 bg-opacity-25 px-[1em] py-[.25em] inline-flex border-2 border-blue-500;
   }
+
+  &.filterReset {
+    border-width: 0;
+
+    &:hover {
+      @apply bg-blue-700 bg-opacity-100 px-[1em] py-[.25em] inline-flex text-white;
+    }
+  }
 }

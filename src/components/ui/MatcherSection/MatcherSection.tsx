@@ -89,9 +89,7 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
                   <Icon icon={'checkMark'} />
                 )}
 
-                {relationShipRating === 'bad-fit' && (
-                  <Icon icon={'checkMark'} />
-                )}
+                {relationShipRating === 'bad-fit' && <Icon icon={'warn'} />}
 
                 {relationShipRating === 'absolutely not suitable' && (
                   <Icon icon={'redMark'} />

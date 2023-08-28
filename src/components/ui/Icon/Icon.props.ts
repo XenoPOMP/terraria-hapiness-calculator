@@ -1,3 +1,3 @@
 export interface IconProps {
-  icon: 'checkMark' | 'redMark' | 'heart';
+  icon: 'checkMark' | 'redMark' | 'heart' | 'warn';
 }
