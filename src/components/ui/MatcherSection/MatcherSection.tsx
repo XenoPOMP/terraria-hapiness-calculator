@@ -32,7 +32,7 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
   return (
     <>
       {isAnyFilterEnabled && (
-        <UiContainer className={cn('my-[1.25em]', styles.matcher)}>
+        <UiContainer className={cn('mt-[1.25em] mb-[2.5em]', styles.matcher)}>
           <h2 className={cn('text-[1.35em] font-semibold')}>
             Вот, что удалось найти
           </h2>
