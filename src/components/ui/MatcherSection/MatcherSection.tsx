@@ -8,14 +8,14 @@ import { AppConstants } from '@/app/app.constants';
 import Icon from '@/src/components/ui/Icon/Icon';
 import UiContainer from '@/src/components/ui/UiContainer/UiContainer';
 import { useTypedSelector } from '@/src/redux/hooks';
-import { Npc } from '@/src/redux/reducers/npc.slice';
+import { Npc, Rating } from '@/src/redux/reducers/npc.slice';
 import { isUndefined } from '@/src/utils/type-checks';
 
 import styles from './MatcherSection.module.scss';
 import type { MatcherSectionProps } from './MatcherSection.props';
 
 const MatcherSection: FC<MatcherSectionProps> = ({}) => {
-  const { filters, mostProperBiome, relationShipRating } = useTypedSelector(
+  const { filters, mostProperBiomes, relationShipRating } = useTypedSelector(
     state => state.npc
   );
 
@@ -28,6 +28,15 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
   );
 
   const activatedNames: Npc[] = npcNames.filter(name => filters[name]);
+
+  const mostProperBiomeRating: Rating =
+    mostProperBiomes !== undefined ? mostProperBiomes[0].rating : 'no-data';
+
+  useEffect(() => {
+    console.log({
+      mostProperBiomeRating,
+    });
+  }, [mostProperBiomes]);
 
   return (
     <>
@@ -48,9 +57,51 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
           </article>
 
           <article className={cn(styles.info)}>
-            <div className={cn(styles.block, 'flex-col')}>
-              <div>Biome: {mostProperBiome?.name}</div>
-              <div>Biome rating: {mostProperBiome?.rating}</div>
+            <div
+              className={cn(
+                styles.block,
+                mostProperBiomeRating === 'very-suitable' &&
+                  styles.verySuitable,
+                (mostProperBiomeRating === 'fits-well' ||
+                  mostProperBiomeRating === undefined) &&
+                  styles.fitsWell,
+                mostProperBiomeRating === 'bad-fit' && styles.badFit,
+                mostProperBiomeRating === 'absolutely not suitable' &&
+                  styles.absolutelyNotSuitable
+              )}
+              style={{
+                display: 'block',
+              }}
+            >
+              {mostProperBiomes?.map(biome => {
+                return (
+                  <div className={cn('border-2 border-red-600')}>
+                    {biome.name}
+
+                    <Image
+                      src={AppConstants.biomeData[biome.name].previewImage}
+                      alt={`biome-${biome.name}-preview`}
+                    />
+                  </div>
+                );
+              })}
+
+              <div className={cn(styles.iconPreview)}>
+                {mostProperBiomeRating === 'very-suitable' && (
+                  <Icon icon={'heart'} />
+                )}
+
+                {(mostProperBiomeRating === 'fits-well' ||
+                  mostProperBiomeRating === undefined) && (
+                  <Icon icon={'checkMark'} />
+                )}
+
+                {mostProperBiomeRating === 'bad-fit' && <Icon icon={'warn'} />}
+
+                {mostProperBiomeRating === 'absolutely not suitable' && (
+                  <Icon icon={'redMark'} />
+                )}
+              </div>
             </div>
 
             <div

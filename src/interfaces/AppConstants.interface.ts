@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ComponentProps } from 'react';
 
-import { Npc, Rating } from '@/src/redux/reducers/npc.slice';
+import { Biome, Npc, Rating } from '@/src/redux/reducers/npc.slice';
 
 interface IAppConstants {
   appName: string;
@@ -11,6 +11,12 @@ interface IAppConstants {
     {
       avatar: ComponentProps<typeof Image>['src'];
       formattedName: string;
+    }
+  >;
+  biomeData: Record<
+    Biome,
+    {
+      previewImage: ComponentProps<typeof Image>['src'];
     }
   >;
   forbiddenRatings: Rating[];

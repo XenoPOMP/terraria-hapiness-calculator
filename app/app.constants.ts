@@ -23,6 +23,14 @@ import truffleAvatar from '@/public/avatars/2101028106_preview_Truffle.png';
 import witchDoctorAvatar from '@/public/avatars/2101028106_preview_Witch_Doctor.png';
 import magicianAvatar from '@/public/avatars/2101028106_preview_Wizard.png';
 import zoologistAvatar from '@/public/avatars/2101028106_preview_Zoologist.png';
+import desertPreview from '@/public/backgrounds/2101028106_preview_BiomeBannerDesert.png';
+import forestPreview from '@/public/backgrounds/2101028106_preview_BiomeBannerForest.png';
+import glowingMushroomPreview from '@/public/backgrounds/2101028106_preview_BiomeBannerGlowingMushroom.png';
+import holyPreview from '@/public/backgrounds/2101028106_preview_BiomeBannerHallow.png';
+import junglePreview from '@/public/backgrounds/2101028106_preview_BiomeBannerJungle.png';
+import oceanPreview from '@/public/backgrounds/2101028106_preview_BiomeBannerOcean (1).png';
+import tundraPreview from '@/public/backgrounds/2101028106_preview_BiomeBannerSnow.png';
+import underGroundPreview from '@/public/backgrounds/2101028106_preview_BiomeBannerUnderground.png';
 import IAppConstants from '@/src/interfaces/AppConstants.interface';
 
 export const AppConstants: IAppConstants = {
@@ -130,6 +138,33 @@ export const AppConstants: IAppConstants = {
     santa: {
       avatar: santaAvatar,
       formattedName: 'Санта-Клаус',
+    },
+  },
+
+  biomeData: {
+    forest: {
+      previewImage: forestPreview,
+    },
+    underground: {
+      previewImage: underGroundPreview,
+    },
+    desert: {
+      previewImage: desertPreview,
+    },
+    jungle: {
+      previewImage: junglePreview,
+    },
+    ocean: {
+      previewImage: oceanPreview,
+    },
+    tundra: {
+      previewImage: tundraPreview,
+    },
+    holy: {
+      previewImage: holyPreview,
+    },
+    'glowing-mushroom-biome': {
+      previewImage: glowingMushroomPreview,
     },
   },
 

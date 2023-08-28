@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { type ReduxAction } from '@/src/redux/types';
 import getObjectKeys from '@/src/utils/getObjectKeys';
+import { isHighest } from '@/src/utils/isHighest';
 import { isUndefined } from '@/src/utils/type-checks';
 
 export type Npc =
@@ -60,10 +61,10 @@ export type NpcState = {
 
   filters: Record<Npc, boolean>;
 
-  mostProperBiome?: {
+  mostProperBiomes?: Array<{
     name: Biome;
     rating: Rating;
-  };
+  }>;
 
   relationShipRating?: Rating;
 };
@@ -1146,12 +1147,150 @@ const npcSlice = createSlice({
         }
       };
 
-      calculateRelationshipRating();
+      const calculateProperBiomeData = () => {
+        const filterBiome = (
+          biome: Biome
+        ): Record<Exclude<Rating, 'uncomfortable' | 'no-data'>, Npc[]> => {
+          const allRatings = activeNpcs.flatMap(npc => {
+            const rating = state.npc[npc].biomes[biome];
 
-      state.mostProperBiome = {
-        name: 'forest',
-        rating: 'very-suitable',
+            return {
+              npc,
+              rating,
+            };
+          });
+
+          const verySuitableRatings: Npc[] = allRatings
+            .filter(rating => rating.rating === 'very-suitable')
+            .map(rating => rating.npc);
+
+          const fitWellRatings: Npc[] = allRatings
+            .filter(
+              rating =>
+                rating.rating === 'fits-well' || rating.rating === 'no-data'
+            )
+            .map(rating => rating.npc);
+
+          const badFitRatings: Npc[] = allRatings
+            .filter(rating => rating.rating === 'bad-fit')
+            .map(rating => rating.npc);
+
+          const absolutelyNotSuitableRatings: Npc[] = allRatings
+            .filter(rating => rating.rating === 'absolutely not suitable')
+            .map(rating => rating.npc);
+
+          return {
+            'very-suitable': verySuitableRatings,
+            'fits-well': fitWellRatings,
+
+            'bad-fit': badFitRatings,
+            'absolutely not suitable': absolutelyNotSuitableRatings,
+          };
+        };
+
+        const data: Record<
+          Biome,
+          Record<Exclude<Rating, 'uncomfortable' | 'no-data'>, Npc[]>
+        > = {
+          forest: filterBiome('forest'),
+          underground: filterBiome('underground'),
+          desert: filterBiome('desert'),
+          jungle: filterBiome('jungle'),
+          ocean: filterBiome('ocean'),
+          tundra: filterBiome('tundra'),
+          holy: filterBiome('holy'),
+          'glowing-mushroom-biome': filterBiome('glowing-mushroom-biome'),
+        };
+
+        const finalRatings: Record<Biome, Rating> = {
+          forest: 'no-data',
+          underground: 'no-data',
+          desert: 'no-data',
+          jungle: 'no-data',
+          ocean: 'no-data',
+          tundra: 'no-data',
+          holy: 'no-data',
+          'glowing-mushroom-biome': 'no-data',
+        };
+
+        getObjectKeys(data).map(biomeName => {
+          const targetBiome = data[biomeName];
+
+          const verySuitableRatingsCount = targetBiome['very-suitable'].length;
+          const fitsWellCount = targetBiome['fits-well'].length;
+          const badFitCount = targetBiome['bad-fit'].length;
+          const absolutelyNotSuitableCount =
+            targetBiome['absolutely not suitable'].length;
+
+          if (absolutelyNotSuitableCount > 0) {
+            finalRatings[biomeName] = 'absolutely not suitable';
+            return;
+          }
+
+          if (badFitCount > 0) {
+            finalRatings[biomeName] = 'bad-fit';
+            return;
+          }
+
+          if (
+            isHighest(fitsWellCount, [verySuitableRatingsCount, fitsWellCount])
+          ) {
+            finalRatings[biomeName] = 'fits-well';
+          }
+
+          if (
+            isHighest(verySuitableRatingsCount, [
+              verySuitableRatingsCount,
+              fitsWellCount,
+            ])
+          ) {
+            finalRatings[biomeName] = 'very-suitable';
+          }
+        });
+
+        const verySuitableBiomes: Biome[] = getObjectKeys(finalRatings).filter(
+          biome => finalRatings[biome] === 'very-suitable'
+        );
+
+        const fitsWellBiomes: Biome[] = getObjectKeys(finalRatings).filter(
+          biome => finalRatings[biome] === 'fits-well'
+        );
+
+        const badFitBiomes: Biome[] = getObjectKeys(finalRatings).filter(
+          biome => finalRatings[biome] === 'bad-fit'
+        );
+
+        const absolutelyNotSuitableBiomes: Biome[] = getObjectKeys(
+          finalRatings
+        ).filter(biome => finalRatings[biome] === 'absolutely not suitable');
+
+        if (verySuitableBiomes.length > 0) {
+          state.mostProperBiomes = verySuitableBiomes.map(biomeName => {
+            return {
+              name: biomeName,
+              rating: 'very-suitable',
+            };
+          });
+
+          return;
+        }
+
+        if (fitsWellBiomes.length > 0) {
+          state.mostProperBiomes = fitsWellBiomes.map(biomeName => {
+            return {
+              name: biomeName,
+              rating: 'fits-well',
+            };
+          });
+
+          return;
+        }
+
+        state.mostProperBiomes = undefined;
       };
+
+      calculateRelationshipRating();
+      calculateProperBiomeData();
     },
   },
 });
