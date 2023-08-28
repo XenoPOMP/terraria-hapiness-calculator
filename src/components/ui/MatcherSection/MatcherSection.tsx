@@ -48,7 +48,7 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
           </article>
 
           <article className={cn(styles.info)}>
-            <div className={cn(styles.block)}>
+            <div className={cn(styles.block, 'flex-col')}>
               <div>Biome: {mostProperBiome?.name}</div>
               <div>Biome rating: {mostProperBiome?.rating}</div>
             </div>

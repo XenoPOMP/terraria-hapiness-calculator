@@ -1112,19 +1112,6 @@ const npcSlice = createSlice({
         npc => state.filters[npc]
       );
 
-      // TODO: Develop proper biome finding algorithm
-
-      // const filterBiomes = activeNpcs.flatMap(name => {
-      //   const targetNpc = state.npc[name];
-      //
-      //   return getObjectKeys(targetNpc.biomes).flatMap(biomeName => ({
-      //     name: biomeName,
-      //     array: targetNpc.biomes[biomeName],
-      //   }));
-      // });
-
-      // console.log(filterBiomes);
-
       const filterNeighbours = activeNpcs.flatMap(name => {
         const targetNpc = state.npc[name];
 
@@ -1133,34 +1120,38 @@ const npcSlice = createSlice({
           .flatMap(neighbour => targetNpc.neighbourhood[neighbour]);
       });
 
-      const isAnyNoData = filterNeighbours.includes('no-data');
-      const isAnyVerySuitable = filterNeighbours.includes('very-suitable');
-      const isAnyFitsWell = filterNeighbours.includes('fits-well');
-      const isAnyBadFit = filterNeighbours.includes('bad-fit');
-      const isAnyHate = filterNeighbours.includes('absolutely not suitable');
+      const calculateRelationshipRating = () => {
+        const isAnyNoData = filterNeighbours.includes('no-data');
+        const isAnyVerySuitable = filterNeighbours.includes('very-suitable');
+        const isAnyFitsWell = filterNeighbours.includes('fits-well');
+        const isAnyBadFit = filterNeighbours.includes('bad-fit');
+        const isAnyHate = filterNeighbours.includes('absolutely not suitable');
+
+        state.relationShipRating = undefined;
+
+        if (isAnyVerySuitable) {
+          state.relationShipRating = 'very-suitable';
+        }
+
+        if (isAnyFitsWell) {
+          state.relationShipRating = 'fits-well';
+        }
+
+        if (isAnyBadFit) {
+          state.relationShipRating = 'bad-fit';
+        }
+
+        if (isAnyHate) {
+          state.relationShipRating = 'absolutely not suitable';
+        }
+      };
+
+      calculateRelationshipRating();
 
       state.mostProperBiome = {
         name: 'forest',
         rating: 'very-suitable',
       };
-
-      state.relationShipRating = undefined;
-
-      if (isAnyVerySuitable) {
-        state.relationShipRating = 'very-suitable';
-      }
-
-      if (isAnyFitsWell) {
-        state.relationShipRating = 'fits-well';
-      }
-
-      if (isAnyBadFit) {
-        state.relationShipRating = 'bad-fit';
-      }
-
-      if (isAnyHate) {
-        state.relationShipRating = 'absolutely not suitable';
-      }
     },
   },
 });
