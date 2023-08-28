@@ -8,7 +8,7 @@ header.appHeader {
     @media (max-width: 860px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-gap: 1em;
+      grid-gap: .5em;
     }
 
     @media (max-width: 600px) {
