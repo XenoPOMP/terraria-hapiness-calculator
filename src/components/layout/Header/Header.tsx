@@ -12,8 +12,6 @@ import styles from './Header.module.scss';
 import type { HeaderProps } from './Header.props';
 
 const Header: FC<HeaderProps> = ({}) => {
-  // mb-[.5em]
-
   const filters = useTypedSelector(state => state.npc.filters);
 
   const hasTwoOrMoreFilters: boolean =
