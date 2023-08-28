@@ -9,6 +9,7 @@ import Icon from '@/src/components/ui/Icon/Icon';
 import UiContainer from '@/src/components/ui/UiContainer/UiContainer';
 import { useTypedSelector } from '@/src/redux/hooks';
 import { Npc, Rating } from '@/src/redux/reducers/npc.slice';
+import getObjectKeys from '@/src/utils/getObjectKeys';
 import { isUndefined } from '@/src/utils/type-checks';
 
 import styles from './MatcherSection.module.scss';
@@ -18,6 +19,10 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
   const { filters, mostProperBiomes, relationShipRating } = useTypedSelector(
     state => state.npc
   );
+
+  const totalBiomeCount = getObjectKeys(
+    useTypedSelector(state => state.npc.npc.guide.biomes)
+  ).length;
 
   const npcNames: Npc[] = Object.keys(filters).map(name => {
     return name as Npc;
@@ -67,24 +72,35 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
                   styles.fitsWell,
                 mostProperBiomeRating === 'bad-fit' && styles.badFit,
                 mostProperBiomeRating === 'absolutely not suitable' &&
-                  styles.absolutelyNotSuitable
+                  styles.absolutelyNotSuitable,
+                'flex-col gap-[.5em]'
               )}
               style={{
-                display: 'block',
+                alignItems: 'start',
               }}
             >
-              {mostProperBiomes?.map(biome => {
-                return (
-                  <div className={cn('border-2 border-red-600')}>
-                    {biome.name}
+              {mostProperBiomes?.length === totalBiomeCount && false ? (
+                <div>Любой</div>
+              ) : (
+                mostProperBiomes?.map(biome => {
+                  return (
+                    <div
+                      className={cn(
+                        'border-2 border-red-600',
+                        styles.biomePreview,
+                        'flex items-center gap-[.3em]'
+                      )}
+                    >
+                      <Icon
+                        icon={AppConstants.biomeData[biome.name].icon}
+                        width={'.8em'}
+                      />
 
-                    <Image
-                      src={AppConstants.biomeData[biome.name].previewImage}
-                      alt={`biome-${biome.name}-preview`}
-                    />
-                  </div>
-                );
-              })}
+                      {AppConstants.biomeData[biome.name].formattedName}
+                    </div>
+                  );
+                })
+              )}
 
               <div className={cn(styles.iconPreview)}>
                 {mostProperBiomeRating === 'very-suitable' && (

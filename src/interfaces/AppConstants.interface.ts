@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import { ComponentProps } from 'react';
+import { ComponentProps, ReactNode } from 'react';
 
+import Icon from '@/src/components/ui/Icon/Icon';
 import { Biome, Npc, Rating } from '@/src/redux/reducers/npc.slice';
 
 interface IAppConstants {
@@ -16,6 +17,8 @@ interface IAppConstants {
   biomeData: Record<
     Biome,
     {
+      formattedName: string;
+      icon: ComponentProps<typeof Icon>['icon'];
       previewImage: ComponentProps<typeof Image>['src'];
     }
   >;

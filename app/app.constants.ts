@@ -144,27 +144,43 @@ export const AppConstants: IAppConstants = {
   biomeData: {
     forest: {
       previewImage: forestPreview,
+      formattedName: 'Лес',
+      icon: 'terraria-logo',
     },
     underground: {
       previewImage: underGroundPreview,
+      formattedName: 'Подземелье',
+      icon: 'mining-helmet',
     },
     desert: {
       previewImage: desertPreview,
+      formattedName: 'Пустыня',
+      icon: 'cactus',
     },
     jungle: {
       previewImage: junglePreview,
+      formattedName: 'Джунгли',
+      icon: 'turtle',
     },
     ocean: {
       previewImage: oceanPreview,
+      formattedName: 'Океан',
+      icon: 'seagull',
     },
     tundra: {
       previewImage: tundraPreview,
+      formattedName: 'Снежный биом',
+      icon: 'snow-zombie',
     },
     holy: {
       previewImage: holyPreview,
+      formattedName: 'Святой биом',
+      icon: 'unicorn-on-stick',
     },
     'glowing-mushroom-biome': {
       previewImage: glowingMushroomPreview,
+      formattedName: 'Грибной биом',
+      icon: 'glowing-mushroom',
     },
   },
 
