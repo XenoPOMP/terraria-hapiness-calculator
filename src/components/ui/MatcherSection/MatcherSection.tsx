@@ -73,20 +73,20 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
                 mostProperBiomeRating === 'bad-fit' && styles.badFit,
                 mostProperBiomeRating === 'absolutely not suitable' &&
                   styles.absolutelyNotSuitable,
-                'flex-col gap-[.5em]'
+                'flex gap-[1em] flex-wrap'
               )}
               style={{
                 alignItems: 'start',
               }}
             >
-              {mostProperBiomes?.length === totalBiomeCount && false ? (
+              {mostProperBiomes?.length === totalBiomeCount ? (
                 <div>Любой</div>
               ) : (
                 mostProperBiomes?.map(biome => {
                   return (
                     <div
                       className={cn(
-                        'border-2 border-red-600',
+                        // 'border-2 border-red-600',
                         styles.biomePreview,
                         'flex items-center gap-[.3em]'
                       )}
