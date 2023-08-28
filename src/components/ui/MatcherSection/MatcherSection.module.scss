@@ -10,9 +10,27 @@ section.matcher {
   article.npcList {
     @apply my-[.5em];
 
+    --cols: 10;
+
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(var(--cols), 1fr);
     gap: .75em 1em;
+
+    @media (max-width: 1116px) {
+      --cols: 8;
+    }
+
+    @media (max-width: 992px) {
+      --cols: 6;
+    }
+
+    @media (max-width: 692px) {
+      --cols: 4;
+    }
+
+    @media (max-width: 352px) {
+      --cols: 2;
+    }
 
     img {
       place-self: center;
@@ -24,6 +42,10 @@ section.matcher {
     grid-template-columns: repeat(2, 1fr);
     gap: 1em;
     margin-top: .75em;
+
+    @media (max-width: 832px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     .block {
       @extend %flexCenter;

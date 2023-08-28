@@ -6,4 +6,8 @@
   @apply mx-auto;
 
   width: min(var(--max-container-width), calc(100% - 2 * var(--margin)));
+
+  @media (max-width: 1000px) {
+    --margin: 1rem;
+  }
 }
