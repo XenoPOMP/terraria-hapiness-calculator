@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { FC, useEffect } from 'react';
 
 import { AppConstants } from '@/app/app.constants';
+import Icon from '@/src/components/ui/Icon/Icon';
 import UiContainer from '@/src/components/ui/UiContainer/UiContainer';
 import { useTypedSelector } from '@/src/redux/hooks';
 import { Npc } from '@/src/redux/reducers/npc.slice';
@@ -47,13 +48,55 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
           </article>
 
           <article className={cn(styles.info)}>
-            <div>
+            <div className={cn(styles.block)}>
               <div>Biome: {mostProperBiome?.name}</div>
               <div>Biome rating: {mostProperBiome?.rating}</div>
             </div>
 
-            <div>
-              <div>Relation: {relationShipRating}</div>
+            <div
+              className={cn(
+                styles.block,
+                relationShipRating === 'very-suitable' && styles.verySuitable,
+                (relationShipRating === 'fits-well' ||
+                  relationShipRating === undefined) &&
+                  styles.fitsWell,
+                relationShipRating === 'bad-fit' && styles.badFit,
+                relationShipRating === 'absolutely not suitable' &&
+                  styles.absolutelyNotSuitable
+              )}
+            >
+              <div>
+                {/*Relation: {relationShipRating}*/}
+                {relationShipRating === 'very-suitable' && <>Отличные соседи</>}
+
+                {(relationShipRating === 'fits-well' ||
+                  relationShipRating === undefined) && <>Хорошие соседи</>}
+
+                {relationShipRating === 'bad-fit' && <>Плохие соседи</>}
+
+                {relationShipRating === 'absolutely not suitable' && (
+                  <>Худшие соседи</>
+                )}
+              </div>
+
+              <div className={cn(styles.iconPreview)}>
+                {relationShipRating === 'very-suitable' && (
+                  <Icon icon={'heart'} />
+                )}
+
+                {(relationShipRating === 'fits-well' ||
+                  relationShipRating === undefined) && (
+                  <Icon icon={'checkMark'} />
+                )}
+
+                {relationShipRating === 'bad-fit' && (
+                  <Icon icon={'checkMark'} />
+                )}
+
+                {relationShipRating === 'absolutely not suitable' && (
+                  <Icon icon={'redMark'} />
+                )}
+              </div>
             </div>
           </article>
         </UiContainer>

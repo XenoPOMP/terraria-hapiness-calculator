@@ -1,17 +1,25 @@
 @import "src/styles/templates";
 
 .switch {
+  @extend %flexCenter;
   @extend %notSelectable;
 
-  @apply bg-gray-300 bg-opacity-25 px-[1em] py-[.25em] inline-block border-2 border-gray-300;
+  @apply bg-gray-300 bg-opacity-25 px-[1em] py-[.25em] inline-flex border-2 border-gray-300;
 
   cursor: pointer;
   border-radius: .25em;
+  gap: .75em;
+
+  // 'flex gap-[.75em] justify-center items-center'
 
   transition: .15s ease background-color,
               .15s ease border-color;
 
+  img {
+    @apply mx-auto;
+  }
+
   &.enabled {
-    @apply bg-blue-500 bg-opacity-25 px-[1em] py-[.25em] inline-block border-2 border-blue-500;
+    @apply bg-blue-500 bg-opacity-25 px-[1em] py-[.25em] inline-flex border-2 border-blue-500;
   }
 }
