@@ -34,7 +34,8 @@ const Header: FC<HeaderProps> = ({}) => {
       <UiContainer
         className={cn(
           !hasTwoOrMoreFilters && 'mt-[.75em]',
-          'mb-[1em] flex flex-wrap gap-[.25em]'
+          'mb-[1em] flex flex-wrap gap-[.25em]',
+          styles.filterSwitches
         )}
       >
         <FilterSwitch name={'guide'} />

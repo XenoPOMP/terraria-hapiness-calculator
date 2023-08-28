@@ -10,6 +10,18 @@
   border-radius: .25em;
   gap: .75em;
 
+  @media (max-width: 860px) {
+    justify-content: space-between !important;
+
+    &:not(.filterReset) {
+      display: flex;
+    }
+
+    img {
+      margin: 0 !important;
+    }
+  }
+
   // 'flex gap-[.75em] justify-center items-center'
 
   transition: .15s ease background-color,

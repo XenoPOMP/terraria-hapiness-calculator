@@ -3,4 +3,16 @@ header.appHeader {
   // top: 0;
   // left: 0;
   background: white;
+
+  section.filterSwitches {
+    @media (max-width: 860px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1em;
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
+  }
 }
