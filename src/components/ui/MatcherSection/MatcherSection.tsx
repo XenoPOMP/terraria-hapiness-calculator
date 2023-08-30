@@ -73,7 +73,7 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
                 mostProperBiomeRating === 'bad-fit' && styles.badFit,
                 mostProperBiomeRating === 'absolutely not suitable' &&
                   styles.absolutelyNotSuitable,
-                'flex gap-[1em] flex-col flex-wrap'
+                'flex gap-y-[.5em] flex-col flex-wrap'
               )}
             >
               <h4>
@@ -82,7 +82,7 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
 
               <div
                 className={cn(
-                  'flex flex-wrap gap-[1em] items-center justify-center'
+                  'flex flex-wrap gap-x-[1em] gap-y-[.25em] items-center justify-center'
                 )}
               >
                 {mostProperBiomes?.length === totalBiomeCount ? (
