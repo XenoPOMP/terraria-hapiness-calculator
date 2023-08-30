@@ -73,34 +73,41 @@ const MatcherSection: FC<MatcherSectionProps> = ({}) => {
                 mostProperBiomeRating === 'bad-fit' && styles.badFit,
                 mostProperBiomeRating === 'absolutely not suitable' &&
                   styles.absolutelyNotSuitable,
-                'flex gap-[1em] flex-wrap'
+                'flex gap-[1em] flex-col flex-wrap'
               )}
-              style={{
-                alignItems: 'start',
-              }}
             >
-              {mostProperBiomes?.length === totalBiomeCount ? (
-                <div>Любой</div>
-              ) : (
-                mostProperBiomes?.map(biome => {
-                  return (
-                    <div
-                      className={cn(
-                        // 'border-2 border-red-600',
-                        styles.biomePreview,
-                        'flex items-center gap-[.3em]'
-                      )}
-                    >
-                      <Icon
-                        icon={AppConstants.biomeData[biome.name].icon}
-                        width={'.8em'}
-                      />
+              <h4>
+                <b>Подходящие биомы</b>
+              </h4>
 
-                      {AppConstants.biomeData[biome.name].formattedName}
-                    </div>
-                  );
-                })
-              )}
+              <div
+                className={cn(
+                  'flex flex-wrap gap-[1em] items-center justify-center'
+                )}
+              >
+                {mostProperBiomes?.length === totalBiomeCount ? (
+                  <div>Любой</div>
+                ) : (
+                  mostProperBiomes?.map(biome => {
+                    return (
+                      <div
+                        className={cn(
+                          // 'border-2 border-red-600',
+                          styles.biomePreview,
+                          'flex items-center gap-[.3em]'
+                        )}
+                      >
+                        <Icon
+                          icon={AppConstants.biomeData[biome.name].icon}
+                          width={'.8em'}
+                        />
+
+                        {AppConstants.biomeData[biome.name].formattedName}
+                      </div>
+                    );
+                  })
+                )}
+              </div>
 
               <div className={cn(styles.iconPreview)}>
                 {mostProperBiomeRating === 'very-suitable' && (
