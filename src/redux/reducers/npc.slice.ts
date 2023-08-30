@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RecordKey, RecordValue } from '@xenopomp/advanced-types';
 
 import { type ReduxAction } from '@/src/redux/types';
 import getObjectKeys from '@/src/utils/getObjectKeys';
@@ -1321,9 +1322,19 @@ const npcSlice = createSlice({
       calculateRelationshipRating();
       calculateProperBiomeData();
     },
+
+    changeDisableStatus(
+      state,
+      action: ReduxAction<{
+        npc: RecordKey<NpcState['disabledFilters']>;
+        newValue: RecordValue<NpcState['disabledFilters']>;
+      }>
+    ) {
+      state.disabledFilters[action.payload.npc] = action.payload.newValue;
+    },
   },
 });
 
 export default npcSlice.reducer;
-export const { toggleFilter } = npcSlice.actions;
+export const { toggleFilter, changeDisableStatus } = npcSlice.actions;
 export const initialNpcState = npcSlice.getInitialState();
