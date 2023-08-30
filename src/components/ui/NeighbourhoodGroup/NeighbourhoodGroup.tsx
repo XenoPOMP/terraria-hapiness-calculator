@@ -80,11 +80,12 @@ const NeighbourhoodGroup: FC<NeighbourhoodGroupProps> = ({ type, names }) => {
       <div className={cn(styles.npcBlock)}>
         {names.length === 0 && <>-</>}
 
-        {names.map(name => {
+        {names.map((name, index) => {
           return (
             <Image
               src={AppConstants.npcData[name].avatar}
-              alt={`${name}-avatar`}
+              alt={`${name}-avatar)`}
+              key={`${name}-avatar-${index}`}
             />
           );
         })}
