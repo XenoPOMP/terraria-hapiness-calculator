@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { RecordKey, RecordValue } from '@xenopomp/advanced-types';
 
 import { type ReduxAction } from '@/src/redux/types';
 import getObjectKeys from '@/src/utils/getObjectKeys';
@@ -60,6 +61,7 @@ export type NpcState = {
   >;
 
   filters: Record<Npc, boolean>;
+  disabledFilters: Record<Npc, boolean>;
 
   mostProperBiomes?: Array<{
     name: Biome;
@@ -1100,6 +1102,34 @@ const initialState: NpcState = {
     truffle: false,
     santa: false,
   },
+
+  disabledFilters: {
+    guide: false,
+    seller: false,
+    zoologist: false,
+    golfer: false,
+    bomber: false,
+    tailor: false,
+    'goblin-engineer': false,
+    gunner: false,
+    'paint-seller': false,
+    steampunker: false,
+    triad: false,
+    painter: false,
+    'witch-doctor': false,
+    stylist: false,
+    angler: false,
+    pirate: false,
+    mechanic: false,
+    cyborg: false,
+    'tax-collector': false,
+    nurse: false,
+    'party-girl': false,
+    tavernkeep: false,
+    magician: false,
+    truffle: false,
+    santa: false,
+  },
 };
 
 const npcSlice = createSlice({
@@ -1292,9 +1322,19 @@ const npcSlice = createSlice({
       calculateRelationshipRating();
       calculateProperBiomeData();
     },
+
+    changeDisableStatus(
+      state,
+      action: ReduxAction<{
+        npc: RecordKey<NpcState['disabledFilters']>;
+        newValue: RecordValue<NpcState['disabledFilters']>;
+      }>
+    ) {
+      state.disabledFilters[action.payload.npc] = action.payload.newValue;
+    },
   },
 });
 
 export default npcSlice.reducer;
-export const { toggleFilter } = npcSlice.actions;
+export const { toggleFilter, changeDisableStatus } = npcSlice.actions;
 export const initialNpcState = npcSlice.getInitialState();

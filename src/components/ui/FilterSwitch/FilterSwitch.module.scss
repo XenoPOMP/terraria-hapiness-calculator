@@ -35,6 +35,10 @@
     @apply bg-blue-500 bg-opacity-25 px-[1em] py-[.25em] inline-flex border-2 border-blue-500;
   }
 
+  &.disabled {
+    @apply opacity-[.25];
+  }
+
   &.filterReset {
     border-width: 0;
 
