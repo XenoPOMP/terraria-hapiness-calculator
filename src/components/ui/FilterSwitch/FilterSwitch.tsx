@@ -26,8 +26,14 @@ const FilterSwitch: FC<FilterSwitchProps> = ({ name, isFilterReset }) => {
         enabled && !isFilterReset && styles.enabled,
         isFilterReset && styles.filterReset
       )}
-      onClick={() => {
+      onClick={ev => {
+        const isCtrlKey = ev.ctrlKey;
+
         if (!isFilterReset) {
+          if (isCtrlKey) {
+            console.log('CTRL key pressed.');
+          }
+
           dispatch(toggleFilter(name));
           return;
         }
