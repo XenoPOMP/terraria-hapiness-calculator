@@ -60,6 +60,7 @@ export type NpcState = {
   >;
 
   filters: Record<Npc, boolean>;
+  disabledFilters: Record<Npc, boolean>;
 
   mostProperBiomes?: Array<{
     name: Biome;
@@ -1074,6 +1075,34 @@ const initialState: NpcState = {
   },
 
   filters: {
+    guide: false,
+    seller: false,
+    zoologist: false,
+    golfer: false,
+    bomber: false,
+    tailor: false,
+    'goblin-engineer': false,
+    gunner: false,
+    'paint-seller': false,
+    steampunker: false,
+    triad: false,
+    painter: false,
+    'witch-doctor': false,
+    stylist: false,
+    angler: false,
+    pirate: false,
+    mechanic: false,
+    cyborg: false,
+    'tax-collector': false,
+    nurse: false,
+    'party-girl': false,
+    tavernkeep: false,
+    magician: false,
+    truffle: false,
+    santa: false,
+  },
+
+  disabledFilters: {
     guide: false,
     seller: false,
     zoologist: false,
